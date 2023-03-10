@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { Card } from '../models/Deck.model';
 
 export class CardsService {
   private readonly cardsApi: AxiosInstance;
@@ -10,9 +11,17 @@ export class CardsService {
   }
 
   async createDeck() {
-    return await (
-      await this.cardsApi.get('/deck/new/draw/?count=8')
-    ).data;
+    const { data } = await await this.cardsApi.get('/deck/new/draw/?count=8');
+
+    const cards = data.cards.map((card: Card) => ({
+      ...card,
+      randomValue: Math.floor(Math.random() * (10 + 1)),
+    }));
+
+    return {
+      ...data,
+      cards,
+    };
   }
 
   async getNewCard(deckId: string) {

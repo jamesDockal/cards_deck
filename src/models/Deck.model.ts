@@ -3,6 +3,7 @@ export interface Card {
   image: string;
   suit: string;
   value: string;
+  randomValue: number;
 }
 
 export interface Deck {

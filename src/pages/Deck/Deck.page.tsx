@@ -17,7 +17,7 @@ export const DeckPage: React.FC = () => {
 
   const getDeck = async () => {
     const data = await cardsService.createDeck();
-
+    console.log('data', data);
     setDeck(data);
     setCardsCount(5);
   };
@@ -50,8 +50,8 @@ export const DeckPage: React.FC = () => {
   return (
     <Container>
       <CardsContainer ref={parentRef}>
-        {availableCards?.map(({ code, image }) => (
-          <Card key={code} image={image} />
+        {availableCards?.map((card) => (
+          <Card key={card.code} card={card} />
         ))}
       </CardsContainer>
       <ButtonContainer>
