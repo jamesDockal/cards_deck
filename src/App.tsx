@@ -1,8 +1,8 @@
 import React from 'react';
-import { DeckPage } from './pages/Deck/Deck.page';
+import { Routes } from './routes/Index';
 
 function App() {
-  return <DeckPage />;
+  return <Routes />;
 }
 
 export default App;

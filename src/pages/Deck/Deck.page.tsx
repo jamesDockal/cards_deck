@@ -5,10 +5,19 @@ import { Button } from '../../components/Button/Button.component';
 import { Card } from '../../components/Card/Card.component';
 import { Deck } from '../../models/Deck.model';
 import { CardsService } from '../../services/cards.service';
-import { ButtonContainer, CardsContainer, Container } from './Deck.styles';
+
+import {
+  ButtonContainer,
+  CardsContainer,
+  Container,
+  Name,
+} from './Deck.styles';
+import { useParams } from 'react-router-dom';
 
 export const DeckPage: React.FC = () => {
   const cardsService = new CardsService();
+
+  const { name } = useParams();
 
   const [cardsCount, setCardsCount] = useState(0);
   const [deck, setDeck] = useState<Deck>({} as Deck);
@@ -49,6 +58,7 @@ export const DeckPage: React.FC = () => {
 
   return (
     <Container>
+      <Name>{name}</Name>
       <CardsContainer ref={parentRef}>
         {availableCards?.map((card) => (
           <Card key={card.code} card={card} />

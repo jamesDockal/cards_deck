@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -26,4 +26,13 @@ export const ButtonContainer = styled.div`
 
   display: flex;
   gap: 12px;
+`;
+
+export const Name = styled.div`
+  position: absolute;
+  color: #d53f8c;
+  right: 20px;
+  top: 20px;
+  font-size: 2rem;
+  font-weight: bolder;
 `;
