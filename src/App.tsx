@@ -1,7 +1,8 @@
 import React from 'react';
+import { DeckPage } from './pages/Deck/Deck.page';
 
 function App() {
-  return <div>getting started</div>;
+  return <DeckPage />;
 }
 
 export default App;
